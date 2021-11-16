@@ -1,0 +1,236 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  description: API Microserviço para avaliação de comida do pedido do cliente
+  title: API Microserviço para avaliação de comida
+host: localhost:6868
+basePath: /api/
+produces:
+  - application/json
+paths:
+  '/evaluation':
+    post:
+      tags:
+        - Avaliação de comida
+      summary: Adiciona uma avaliação de comida
+      description: Adiciona uma avaliação de comida
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Evaluation'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '500':
+          description: Internal Server Error
+      deprecated: false
+    get:
+      tags:
+        - Avaliação de comida
+      summary: Obtém todas as avaliações de comida
+      description: Obtém todas as avaliações de comida
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Evaluation'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '500':
+          description: Internal Server Error
+      deprecated: false
+  '/evaluation/{id}':
+    get:
+      tags:
+        - Avaliação de comida
+      summary: Obtém a avaliação de comida referente ao ID
+      description: Obtém a avaliação de comida referente ao ID
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID para retornar a avaliação de comida"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Evaluation'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '500':
+          description: Internal Server Error
+      deprecated: false
+    put:
+      tags:
+        - Avaliação de comida
+      summary: Atualiza a avaliação de comida referente ao ID
+      description: Atualiza a avaliação de comida referente ao ID
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID para atualizar a avaliação de comida"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Evaluation'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '500':
+          description: Internal Server Error
+      deprecated: false
+    delete:
+      tags:
+        - Avaliação de comida
+      summary: Apaga a avaliação de comida referente ao ID
+      description: Apaga a avaliação de comida referente ao ID
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID para apagar a avaliação de comida"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Evaluation'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '500':
+          description: Internal Server Error
+      deprecated: false
+  '/establishment/{id}':
+    get:
+      tags:
+        - Avaliação de comida
+      summary: Obtém todas as avaliações de comida do estabelecimento
+      description: Obtém todas as avaliações de comida do estabelecimento
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID do estabelecimento para retornar todas as avaliação de comida"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Evaluation'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '500':
+          description: Internal Server Error
+      deprecated: false
+  '/food/{id}':
+    get:
+      tags:
+        - Avaliação de comida
+      summary: Obtém todas as avaliações de comida referente ao ID do prato
+      description: Obtém todas as avaliações de comida referente ao ID do prato
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID do prato para retornar todas as avaliação de comida"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Evaluation'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '500':
+          description: Internal Server Error
+      deprecated: false
+  '/user/{id}':
+    get:
+      tags:
+        - Avaliação de comida
+      summary: Obtém todas as avaliações de comida referente ao ID do usuário
+      description: Obtém todas as avaliações de comida referente ao ID do usuário
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID do usuário para retornar todas as avaliação de comida"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Evaluation'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '500':
+          description: Internal Server Error
+      deprecated: false
+definitions:
+  Evaluation:
+    type: object
+    properties:
+      establishment_id:
+        type: string
+        example: "f190c462-99ce-499a-84a4-db5f950500c5"
+      establishment_name:
+        type: string
+        example: "Pizza estrela"
+      food_id:
+        type: string
+        example: "ce123ab5-9da9-4892-8b90-3d80289b69df"
+      food_name:
+        type: string
+        example: "Pizza de calabresa com catupiry"
+      user_id:
+        type: string
+        example: "4ff508b1-6a10-4920-aab6-53567e829a65"
+      user_name:
+        type: string
+        example: "John doe"
+      stars:
+        type: integer
+        example: 5
+      whats_did_like:
+        type: string
+        example: "Saboroso; Cremoso"
+      comment:
+        type: string
+        example: "A Pizza é a melhor que comi"
+      
+    title: Evaluation
