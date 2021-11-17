@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "37b739ad-6d4c-417b-83d1-8a8a02e56878",
+		"name": "FIAP IFOOD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Evaluation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:6868/api/evaluations?food_name=pizza",
+					"host": [
+						"localhost"
+					],
+					"port": "6868",
+					"path": [
+						"api",
+						"evaluations"
+					],
+					"query": [
+						{
+							"key": "food_name",
+							"value": "pizza"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Evaluation ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:6868/api/evaluations/6",
+					"host": [
+						"localhost"
+					],
+					"port": "6868",
+					"path": [
+						"api",
+						"evaluations",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Evaluation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"establishment_id\": \"f190c462-99ce-499a-84a4-db5f950500c5\",\n  \"establishment_name\": \"Pizza estrela\",\n  \"food_id\": \"ce123ab5-9da9-4892-8b90-3d80289b69df\",\n  \"food_name\": \"Pizza de calabresa\",\n  \"user_id\": \"4ff508b1-6a10-4920-aab6-53567e829a65\",\n  \"user_name\": \"John doe\",\n  \"stars\": 5,\n  \"whats_did_like\": \"Saboroso, Cremoso\",\n  \"comment\": \"A Pizza é a melhor que comi\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:6868/api/evaluations",
+					"host": [
+						"localhost"
+					],
+					"port": "6868",
+					"path": [
+						"api",
+						"evaluations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Evaluation",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"establishment_id\": \"f190c462-99ce-499a-84a4-db5f950500c0\",\n  \"establishment_name\": \"Pizza estrela 2\",\n  \"food_id\": \"ce123ab5-9da9-4892-8b90-3d80289b69da\",\n  \"food_name\": \"Pizza de calabresa\",\n  \"user_id\": \"4ff508b1-6a10-4920-aab6-53567e829as5\",\n  \"user_name\": \"John doe\",\n  \"stars\": 5,\n  \"whats_did_like\": \"Saboroso, Cremoso\",\n  \"comment\": \"A Pizza é a melhor que comi\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:6868/api/evaluations/4",
+					"host": [
+						"localhost"
+					],
+					"port": "6868",
+					"path": [
+						"api",
+						"evaluations",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Evaluation",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"establishment_id\": \"f190c462-99ce-499a-84a4-db5f950500c0\",\n  \"establishment_name\": \"Pizza estrela 2\",\n  \"food_id\": \"ce123ab5-9da9-4892-8b90-3d80289b69df\",\n  \"food_name\": \"Pizza de calabresa\",\n  \"user_id\": \"4ff508b1-6a10-4920-aab6-53567e829a65\",\n  \"user_name\": \"John doe\",\n  \"stars\": 5,\n  \"whats_did_like\": \"Saboroso, Cremoso\",\n  \"comment\": \"A Pizza é a melhor que comi\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:6868/api/evaluations/6",
+					"host": [
+						"localhost"
+					],
+					"port": "6868",
+					"path": [
+						"api",
+						"evaluations",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Evaluation Establishment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:6868/api/evaluations/establishment/f190c462-99ce-499a-84a4-db5f950500c5",
+					"host": [
+						"localhost"
+					],
+					"port": "6868",
+					"path": [
+						"api",
+						"evaluations",
+						"establishment",
+						"f190c462-99ce-499a-84a4-db5f950500c5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Evaluation Food",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:6868/api/evaluations/food/ce123ab5-9da9-4892-8b90-3d80289b69df",
+					"host": [
+						"localhost"
+					],
+					"port": "6868",
+					"path": [
+						"api",
+						"evaluations",
+						"food",
+						"ce123ab5-9da9-4892-8b90-3d80289b69df"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Evaluation User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:6868/api/evaluations/user/4ff508b1-6a10-4920-aab6-53567e829a65",
+					"host": [
+						"localhost"
+					],
+					"port": "6868",
+					"path": [
+						"api",
+						"evaluations",
+						"user",
+						"4ff508b1-6a10-4920-aab6-53567e829a65"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
