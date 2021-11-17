@@ -46,8 +46,13 @@ exports.create = (req, res) => {
 
 // Retrieve all Evaluations from the database.
 exports.findAll = (req, res) => {
-  const title = req.query.title;
-  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+  const establishment_name = req.query.establishment_name;
+  const food_name = req.query.food_name;
+  let condition = {};
+  establishment_name
+    ? (condition.establishment_name = { [Op.like]: `%${establishment_name}%` })
+    : null;
+  food_name ? (condition.food_name = { [Op.like]: `%${food_name}%` }) : null;
 
   Evaluation.findAll({ where: condition })
     .then((data) => {
@@ -129,14 +134,16 @@ exports.delete = (req, res) => {
 // Find a Establishment Evaluation with an id
 exports.findEstablishment = (req, res) => {
   const id = req.params.id;
+  let condition = { establishment_id: id };
 
-  Evaluation.findByPk(id)
+  Evaluation.findAll({ where: condition })
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error retrieving Evaluation with id=" + id,
+        message:
+          err.message || "Some error occurred while retrieving evaluations.",
       });
     });
 };
@@ -145,13 +152,16 @@ exports.findEstablishment = (req, res) => {
 exports.findFood = (req, res) => {
   const id = req.params.id;
 
-  Evaluation.findByPk(id)
+  let condition = { food_id: id };
+
+  Evaluation.findAll({ where: condition })
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error retrieving Evaluation with id=" + id,
+        message:
+          err.message || "Some error occurred while retrieving evaluations.",
       });
     });
 };
@@ -160,13 +170,16 @@ exports.findFood = (req, res) => {
 exports.findUser = (req, res) => {
   const id = req.params.id;
 
-  Evaluation.findByPk(id)
+  let condition = { user_id: id };
+
+  Evaluation.findAll({ where: condition })
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error retrieving Evaluation with id=" + id,
+        message:
+          err.message || "Some error occurred while retrieving evaluations.",
       });
     });
 };
